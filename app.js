@@ -58,4 +58,7 @@ app.use("/api", index);
 const authRouter = require("./routes/auth-router");
 app.use("/api", authRouter);
 
+const searchRouter = require("./routes/searchResult-router");
+app.use("/api", searchRouter);
+
 module.exports = app;
