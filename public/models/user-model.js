@@ -1,25 +1,25 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema ({
-  fullName: {type: String, required:true},
-  email: {
-    type: String, 
-    required:true,
-    unique: true,
-    match: /^.+@.+\..+$/,
-  },
+const userSchema = new Schema({
+    fullName: { type: String, required: true },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        match: /^.+@.+\..+$/,
+    },
 
-  encryptedPassword: {type: String},
+    encryptedPassword: { type: String },
     role: {
-      type: String,
-      enum: ["normal"],
-      required : true,
-      default: "normal",
-  },
+        type: String,
+        enum: ["normal"],
+        required: true,
+        default: "normal",
+    },
 }, {
-  timestamps: true,
-});
+        timestamps: true,
+    });
 
 
 const User = mongoose.model("User", userSchema);

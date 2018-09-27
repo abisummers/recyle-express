@@ -9,6 +9,7 @@ const cors = require("cors");
 
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
+const passportSetup = require("./config/passport/passport-setup");
 
 mongoose
   .connect(
@@ -51,6 +52,8 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
+
+passportSetup(app);
 
 const index = require("./routes/index.js");
 app.use("/api", index);
