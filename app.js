@@ -7,6 +7,9 @@ const mongoose = require("mongoose");
 const logger = require("morgan");
 const cors = require("cors");
 
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+
 mongoose
   .connect(
     "mongodb://localhost/Project3",
@@ -36,11 +39,23 @@ app.use(
     // allow other domains/origins to send cookies
     credentials: true,
     // this is the domain we want cookies from (our React app)
-    origin: ["http://locahost:3000"]
+    origin: ["http://localhost:3000"]
+  })
+);
+
+app.use(
+  session({
+    secret: "OIJNBVFDSDbvcfddetfd",
+    saveUninitialized: true,
+    resave: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
 
 const index = require("./routes/index.js");
 app.use("/api", index);
+
+const authRouter = require("./routes/auth-router");
+app.use("/api", authRouter);
 
 module.exports = app;
