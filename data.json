@@ -82,5 +82,11 @@
     "name": "crisp packet",
     "recycleColor": "grey",
     "keywords": ["food"]
+  },
+  {
+    "category": "compost",
+    "name": "",
+    "recycleColor": "grey",
+    "keywords": ["food"]
   }
 ]

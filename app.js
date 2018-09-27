@@ -9,7 +9,7 @@ const cors = require("cors");
 
 mongoose
   .connect(
-    "mongodb://localhost/recycle",
+    "mongodb://localhost/Project3",
     { useNewUrlParser: true }
   )
   .then(x => {
