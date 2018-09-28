@@ -47,4 +47,11 @@ router.post("/login", (req, res, next) => {
     .catch(err => next(err));
 });
 
+//-------------------- LOGOUT ---------------------
+
+router.delete("/logout", (req, res, next) => {
+  req.logOut();
+  res.json({ userDoc: null });
+});
+
 module.exports = router;
