@@ -10,9 +10,7 @@ router.post("/signup", (req, res, next) => {
   // console.log(req.body);
   const { fullName, email, originalPassword } = req.body;
 
-
-
-  const encryptedPassword = bcyrpt.hashSync(originalPassword, 10);
+  const encryptedPassword = bcrypt.hashSync(originalPassword, 10);
 
   User.create({ fullName, encryptedPassword, email })
     .then(userDoc => {
