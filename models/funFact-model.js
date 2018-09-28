@@ -11,6 +11,6 @@ const funFactSchema = new Schema({
     });
 
 
-const FunFact = mongoose.model("User", funFactSchema);
+const FunFact = mongoose.model("funFact", funFactSchema);
 
 module.exports = FunFact;
