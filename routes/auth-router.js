@@ -52,4 +52,16 @@ router.delete("/logout", (req, res, next) => {
   res.json({ userDoc: null });
 });
 
+//---------------CHECK LOGIN -------------
+
+router.get("/checklogin", (req, res, next) => {
+  if (req.user) {
+    console.log(req.user);
+    req.user.encryptedPassword = undefined;
+    res.json({ userDoc: req.user });
+  } else {
+    res.json({ userDoc: null });
+  }
+});
+
 module.exports = router;
