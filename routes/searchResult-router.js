@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const recycling = require("../public/models/product-model");
+const recycling = require("../models/product-model");
 
 router.get("/search-result", (req, res, next)=> {
     recycling.find()
