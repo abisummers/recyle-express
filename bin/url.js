@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const products = require("../models/product-model");
+const Product = require("../models/product-model");
 var slugify = require("slugify");
 // const productDatabase import database
 
@@ -16,14 +16,19 @@ mongoose //make sure the name is the same as in app.js
     console.error("Error connecting to mongo", err);
   });
 
-products
-  .find()
+Product.find()
   .then(allItems => {
-    allItems.forEach(eachProduct => {
-      eachProduct.urlId = slugify(
-        eachProduct.fields.typologie_des_dechets
-      ).toLowerCase();
-      console.log(eachProduct.urlId);
+    // let idsArray = allItems.map(oneItem => {
+    //   return oneItem._id;
+    // });
+
+    allItems.forEach(oneItem => {
+      const { fields } = oneItem;
+      oneItem.urlId = slugify(fields.typologie_des_dechets).toLowerCase();
+      oneItem
+        .save()
+        .then(() => console.log(`Updated ${fields.typologie_des_dechets}`))
+        .catch(err => console.log("Update Error", err));
     });
   })
-  .catch(err => next(err));
+  .catch(err => console.log("Find Error", err));
