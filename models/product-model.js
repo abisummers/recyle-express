@@ -8,19 +8,7 @@ const productSchema = new Schema(
     fields: {
       qu_est_ce_que_j_en_fais: {
         type: String,
-        enum: [
-          "associations",
-          "bois de chauffage",
-          "composteur",
-          "déchèterie",
-          "garagiste",
-          "magasins de la grande distribution",
-          "opticien",
-          "ordures ménagères",
-          "pharmacie",
-          "tri(conteneur de verre)",
-          "tri (sac - bac - point d'apport volontaire)"
-        ],
+
         required: true
       },
       comment_eviter_de_le_produire: { type: String },
@@ -34,6 +22,7 @@ const productSchema = new Schema(
           "Déchets du Bâtiment",
           "Déchets de cuisine",
           "Déchets Dangereux",
+          "Déchets de jardin",
           "Déchets Electriques et électroniques",
           "Divers",
           "Métaux",
