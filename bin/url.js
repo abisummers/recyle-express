@@ -6,7 +6,7 @@ var slugify = require("slugify");
 mongoose.Promise = Promise;
 mongoose //make sure the name is the same as in app.js
   .connect(
-    "mongodb://localhost/recycle",
+    "mongodb://localhost/Project3",
     { useMongoClient: true }
   )
   .then(() => {
