@@ -13,7 +13,7 @@ const passportSetup = require("./config/passport/passport-setup");
 
 mongoose
   .connect(
-    "mongodb://localhost/test",
+    "mongodb://localhost/recycle",
     { useNewUrlParser: true }
   )
   .then(x => {
@@ -63,5 +63,8 @@ app.use("/api", authRouter);
 
 const searchRouter = require("./routes/searchResult-router");
 app.use("/api", searchRouter);
+
+const categoryRouter = require("./routes/category-router");
+app.use("/api", categoryRouter);
 
 module.exports = app;
