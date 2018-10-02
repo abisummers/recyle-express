@@ -7,7 +7,7 @@ router.get("/search-result", (req, res, next) => {
   recycling
     .find()
     .then(productsArray => {
-      // console.log("blah blah blah",productsArray)
+      console.log("blah blah blah",productsArray)
       res.json(productsArray);
     })
     .catch(err => next(err));
