@@ -13,7 +13,7 @@ const passportSetup = require("./config/passport/passport-setup");
 
 mongoose
   .connect(
-    "mongodb://localhost/recycle",
+    "mongodb://localhost/Project3",
     { useNewUrlParser: true }
   )
   .then(x => {

@@ -17,7 +17,7 @@ router.get("/all-categories", (req, res, next) => {
 
 router.get("/material/:id", (req, res, next) => {
   products
-    .find({ urlId: req.params.id })
+    .find({urlId: req.params.id})
     .then(productCategory => {
       res.json(productCategory);
     })
