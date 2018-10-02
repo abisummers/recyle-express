@@ -44,7 +44,7 @@ app.use(
 
 app.use(
   session({
-    secret: "OIJNBVFDSDbvcfddetfd",
+    secret: process.env.sessionsSecret,
     saveUninitialized: true,
     resave: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
