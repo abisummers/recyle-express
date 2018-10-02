@@ -14,7 +14,12 @@ const productSchema = new Schema(
       comment_eviter_de_le_produire: { type: String },
       produits: { type: String, required: true },
       que_va_t_il_devenir: { type: String, required: true },
-      images: { type: String, required: true },
+      images: {
+        type: String,
+        required: true,
+        default:
+          "http://www.roger-jean-bedarieux.fr/sx-content/uploads/bloc_cms/arrachage-souche-pezenas_1503302516.png"
+      },
       typologie_des_dechets: {
         type: String,
         enum: [
@@ -22,7 +27,6 @@ const productSchema = new Schema(
           "Déchets du Bâtiment",
           "Déchets de cuisine",
           "Déchets Dangereux",
-          "Déchets de jardin",
           "Déchets Electriques et électroniques",
           "Divers",
           "Métaux",
@@ -30,7 +34,8 @@ const productSchema = new Schema(
           "Papiers-Cartons",
           "Plastiques",
           "Textiles et cuir",
-          "Verre"
+          "Verre",
+          "Déchets de jardin"
         ],
         required: true
       }
