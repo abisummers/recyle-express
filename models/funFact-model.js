@@ -3,16 +3,13 @@ const Schema = mongoose.Schema;
 
 const funFactSchema = new Schema(
   {
-    author: { type: String, required: true },
-    description: [{ type: String, minlength: 5 }]
+    description: { type: String, minlength: 5 }
   },
   {
     timestamps: true,
-
-    collection: "fun-facts"
   }
 );
 
-const FunFact = mongoose.model("funFact", funFactSchema);
+const FunFact = mongoose.model("FunFact", funFactSchema);
 
 module.exports = FunFact;

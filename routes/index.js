@@ -1,6 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const FunFacts = require("../models/funFact-model");
+
+
+/* GET home page */
+router.get("/", (req, res, next) => {
+  res.json({ hello: "hello" });
+});
 const recycling = require("../models/product-model");
 
 // --------------- FUN FACTS -----------------
@@ -8,6 +14,7 @@ const recycling = require("../models/product-model");
 router.get("/facts", (req, res, next) => {
   FunFacts.find()
     .then(facts => {
+      console.log('BACKEND FUN FACTS', facts );
       res.json(facts);
     })
 
