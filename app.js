@@ -47,7 +47,7 @@ app.use(
 
 app.use(
   session({
-    secret: process.env.sessionsSecret,
+    secret: process.env.SESSIONSECRET,
     saveUninitialized: true,
     resave: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
