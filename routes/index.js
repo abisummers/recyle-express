@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const FunFacts = require("../models/funFact-model");
+
+
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.json({ hello: "hello" });
@@ -11,6 +13,7 @@ router.get("/", (req, res, next) => {
 router.get("/facts", (req, res, next) => {
   FunFacts.find()
     .then(facts => {
+      console.log('BACKEND FUN FACTS', facts );
       res.json(facts);
     })
 
