@@ -47,7 +47,7 @@ app.use(
 
 app.use(
   session({
-    secret: "OIJNBVFDSDbvcfddetfd",
+    secret: SESSIONSECRET,
     saveUninitialized: true,
     resave: true,
     store: new MongoStore({ mongooseConnection: mongoose.connection })
@@ -67,6 +67,9 @@ app.use("/api", searchRouter);
 
 const categoryRouter = require("./routes/category-router");
 app.use("/api", categoryRouter);
+
+const fileRouter = require("./routes/file-router");
+app.use("/api", fileRouter);
 
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
