@@ -11,17 +11,20 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passportSetup = require("./config/passport/passport-setup");
 
-mongoose.connect
-  (process.env.MONGODB_URI, { useNewUrlParser: true })
-    .then(x => {
-      console.log(
-        `Connected to Mongo! Database name: "${x.connections[0].name}"`
-      );
-    })
-    .catch(err => {
-      console.error("Error connecting to mongo", err);
-    })
-;
+mongoose
+  .connect(
+    process.env.MONGODB_URI,
+    { useNewUrlParser: true }
+  )
+  .then(x => {
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
+  })
+  .catch(err => {
+    console.error("Error connecting to mongo", err);
+  });
+
 const app = express();
 
 // Middleware Setup
@@ -64,6 +67,9 @@ app.use("/api", searchRouter);
 
 const categoryRouter = require("./routes/category-router");
 app.use("/api", categoryRouter);
+
+const fileRouter = require("./routes/file-router");
+app.use("/api", fileRouter);
 
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
