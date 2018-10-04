@@ -11,6 +11,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const passportSetup = require("./config/passport/passport-setup");
 
+
 mongoose
   .connect(
     process.env.MONGODB_URI,
@@ -70,6 +71,9 @@ app.use("/api", categoryRouter);
 
 const fileRouter = require("./routes/file-router");
 app.use("/api", fileRouter);
+
+const quizzRouter = require("./routes/quizz-router");
+app.use("/api", quizzRouter);
 
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
