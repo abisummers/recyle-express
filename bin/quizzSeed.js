@@ -4,7 +4,7 @@ const Quizz = require("../models/quizz-model");
 mongoose.Promise = Promise;
 mongoose //make sure the name is the same as in app.js
     .connect(
-        "mongodb://localhost/recycle",
+        "mongodb://localhost/Project3",
         { useNewUrlParser: true }
     )
     .then(() => {
