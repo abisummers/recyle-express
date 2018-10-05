@@ -1,10 +1,12 @@
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 const Quizz = require("../models/quizz-model");
 
 mongoose.Promise = Promise;
 mongoose //make sure the name is the same as in app.js
     .connect(
-        "mongodb://localhost/recycle",
+        process.env.MONGODB_URI,
         { useNewUrlParser: true }
     )
     .then(() => {

@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 const FunFact = require("../models/funFact-model");
 
@@ -5,7 +7,7 @@ const FunFact = require("../models/funFact-model");
 mongoose.Promise = Promise;
 mongoose //make sure the name is the same as in app.js
   .connect(
-      "mongodb://localhost/Project3",
+    process.env.MONGODB_URI,
       { useNewUrlParser: true }
     )
   .then(() => {

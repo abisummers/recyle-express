@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const mongoose = require("mongoose");
 const Product = require("../models/product-model");
 var slugify = require("slugify");
@@ -6,7 +8,7 @@ var slugify = require("slugify");
 mongoose.Promise = Promise;
 mongoose //make sure the name is the same as in app.js
   .connect(
-    "mongodb://localhost/Project3",
+    process.env.MONGODB_URI,
     { useMongoClient: true }
   )
   .then(() => {
