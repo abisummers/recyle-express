@@ -6,11 +6,7 @@ const Quizz = require("../models/quizz-model");
 mongoose.Promise = Promise;
 mongoose //make sure the name is the same as in app.js
     .connect(
-<<<<<<< HEAD
-        "mongodb://localhost/Project3",
-=======
         process.env.MONGODB_URI,
->>>>>>> c8e088b776cead88f34cddc03013e8189bcfa1fc
         { useNewUrlParser: true }
     )
     .then(() => {
