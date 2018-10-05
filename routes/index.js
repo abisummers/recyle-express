@@ -13,7 +13,6 @@ const recycling = require("../models/product-model");
 router.get("/facts", (req, res, next) => {
   FunFacts.find()
     .then(facts => {
-      console.log("BACKEND FUN FACTS", facts);
       res.json(facts);
     })
 
